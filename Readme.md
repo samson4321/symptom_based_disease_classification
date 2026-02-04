@@ -1,5 +1,6 @@
 Disease Prediction Using Machine Learning (Kaggle Dataset)
-📌 Project Overview
+
+ Project Overview
 
 This project explores the use of machine learning models to predict diseases based on patient demographic information and reported symptoms.
 The primary goal is to evaluate whether symptom-based data alone is sufficient for accurate multi-class disease classification.
@@ -133,7 +134,7 @@ Using top-k accuracy instead of strict accuracy
 
 Applying confusion matrix analysis to identify systematic misclassifications
 
-📌 Conclusion
+ Conclusion
 
 This project demonstrates the limitations of symptom-based disease prediction using standard machine learning models.
 While the achieved accuracy is low, the experiment provides valuable insights into the challenges of real-world medical classification tasks.
