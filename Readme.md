@@ -1,21 +1,19 @@
-Disease Prediction Using Machine Learning
-
-(Symptom-Based Multi-Class Classification)
-
+🩺 Disease Prediction Using Machine Learning
+Symptom-Based Multi-Class Classification
 📌 Project Overview
 
 This project investigates whether machine learning models can predict diseases using only:
 
-Patient age
+🧓 Patient age
 
-Patient gender
+🚻 Patient gender
 
-Self-reported symptoms
+📝 Self-reported symptoms
 
 The task is formulated as a multi-class classification problem, where each patient is assigned one disease label from many possible diseases.
 
-The project does not aim to build a real medical diagnostic system.
-Instead, it focuses on understanding the limits of machine learning when the available data is insufficient.
+⚠️ This project does not aim to build a real medical diagnostic system.
+Instead, it focuses on understanding the limitations of machine learning when the available data is insufficient.
 
 📂 Dataset Description
 
@@ -25,33 +23,33 @@ Type: Structured tabular data
 
 Target Variable: Disease (many disease classes)
 
-Input Features
+🔹 Input Features
 
-Age (continuous numerical feature)
+Age — continuous numerical feature
 
-Gender (categorical → one-hot encoded)
+Gender — categorical (one-hot encoded)
 
-Symptoms (text field → converted into multiple binary symptom indicators)
+Symptoms — text field converted into multiple binary indicators
 
-Removed Columns
+🔹 Removed Columns
 
-Patient_ID – identifier only, no predictive value
+Patient_ID — identifier only, no predictive value
 
-Symptom_Count – redundant after symptom encoding
+Symptom_Count — redundant after symptom encoding
 
 🔄 Data Preprocessing Pipeline
 
-The following preprocessing steps were applied carefully to ensure correctness and consistency:
+The following preprocessing steps were applied carefully to ensure correctness and consistency.
 
 1️⃣ Age Scaling
 
-Age was scaled to the range [0, 1] using MinMaxScaler
+Age was scaled to [0, 1] using MinMaxScaler
 
-This prevents age from dominating distance calculations in KNN
+Prevents age from dominating distance calculations in KNN
 
 2️⃣ Gender Encoding
 
-Gender was converted into:
+Converted into:
 
 Gender_Female
 
@@ -59,7 +57,7 @@ Gender_Male
 
 Gender_Other
 
-Boolean values were converted to 0/1
+Boolean values converted to 0 / 1
 
 Gender features were not scaled
 
@@ -71,15 +69,11 @@ Split into individual symptoms
 
 Converted into binary (0/1) one-hot features
 
-The original text column was removed
+Original text column removed
 
 4️⃣ Train-Test Split
 
-Dataset split into:
-
-75% training
-
-25% testing
+75% training / 25% testing
 
 Stratified split used to preserve disease distribution
 
@@ -98,25 +92,26 @@ Ensemble-based model
 
 Used as a baseline comparison
 
-Helps confirm whether low accuracy is model-specific or data-related
+Confirms whether low accuracy is model-specific or data-related
 
 📊 Evaluation & Visual Analysis
 1️⃣ Class Distribution Analysis
 
-Disease frequencies examined using:
+Disease frequencies were examined using:
 
 Raw counts
 
 Percentages
 
-Visualization included:
+Visualizations:
 
-Pie chart (for proportions)
+🟠 Pie chart — overall proportions
 
-Bar chart (for clarity with many classes)
+🔵 Bar chart — clearer comparison with many classes
 
-📌 Result:
-Classes are roughly balanced, so class imbalance is NOT the main problem.
+Result:
+
+Classes are roughly balanced, so class imbalance is NOT the main issue.
 
 2️⃣ Training vs Test Accuracy Curve (KNN)
 
@@ -126,7 +121,7 @@ Training accuracy vs number of neighbors (k)
 
 Test accuracy vs number of neighbors (k)
 
-Observed behavior:
+Observed Behavior
 
 k = 1 → training accuracy ≈ 100% (memorization)
 
@@ -134,7 +129,7 @@ Training accuracy decreases as k increases
 
 Test accuracy remains very low for all k values
 
-📌 Interpretation:
+Interpretation
 
 Small k → overfitting
 
@@ -143,13 +138,13 @@ Large k → underfitting
 No value of k leads to good generalization
 
 📈 Final Results
-Model Accuracy Summary
+🔹 Model Accuracy Summary
 Model	Accuracy
 KNN (best k)	~3–4%
 Random Forest	~3%
-Classification Report
+🔹 Classification Report
 
-Precision, recall, and F1-score are very low across all diseases
+Precision, recall, and F1-scores are very low across all diseases
 
 No disease class is predicted reliably
 
@@ -159,17 +154,17 @@ Performance is close to random guessing
 
 The low accuracy is not caused by a bug, poor preprocessing, or incorrect model usage.
 
-Instead, it reflects fundamental limitations of the dataset:
+Instead, it reflects fundamental limitations of the dataset.
 
 Key Reasons for Poor Performance
 
-Large number of disease classes
+🔴 Large number of disease classes
 
-Strong symptom overlap between diseases
+🔴 Strong symptom overlap between diseases
 
-Sparse, high-dimensional feature space
+🔴 Sparse, high-dimensional feature space
 
-Lack of clinical depth
+🔴 Lack of clinical depth:
 
 No lab tests
 
@@ -179,7 +174,7 @@ No medical history
 
 No temporal information
 
-📌 Conclusion:
+📌 Key Conclusion
 
 Symptoms alone are insufficient to reliably distinguish between many diseases.
 
@@ -192,7 +187,7 @@ Low accuracy does not always mean a bad model — it can mean insufficient infor
 Understanding why a model fails is just as important as achieving high accuracy.
 
 🚀 Possible Improvements (Future Work)
-Data Improvements
+🔧 Data Improvements
 
 Group diseases into broader categories (e.g., respiratory, neurological)
 
@@ -200,7 +195,7 @@ Remove very rare symptoms
 
 Add clinical features (lab results, vitals, severity)
 
-Modeling Improvements
+🤖 Modeling Improvements
 
 Hierarchical classification
 
@@ -208,13 +203,13 @@ Gradient boosting models
 
 Feature selection or dimensionality reduction
 
-Evaluation Improvements
+📈 Evaluation Improvements
 
 Top-k accuracy (e.g., is the correct disease in the top 5 predictions?)
 
-Confusion matrix analysis for systematic errors
+Confusion matrix analysis for systematic misclassifications
 
 ⚠️ Disclaimer
 
 This project is for educational and experimental purposes only.
-It must not be used for real medical diagnosis or clinical decision-making.
+It must not be used for real medical diagnosis or clinical decision-making
