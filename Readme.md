@@ -1,4 +1,4 @@
-🩺 Disease Prediction Using Machine Learning
+##🩺 Disease Prediction Using Machine Learning##
 Symptom-Based Multi-Class Classification
 📌 Project Overview
 
